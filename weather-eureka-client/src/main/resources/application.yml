@@ -1,0 +1,15 @@
+spring:
+  application:
+    name: weather-eureka-client
+
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:8761/eureka/
+
+zuul:
+  routes:
+    city.path: /city/**
+    city.serviceId: weather-city-server
+    data.path: /data/**
+    data.serviceId: weather-data-server
